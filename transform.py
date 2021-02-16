@@ -21,6 +21,7 @@ def transform(csv):
     df = df.drop(columns=['Data Escala de Tempo 1 GE Simp 4', 'dsc_estado',
                           'id_subsistema', 'nom_tipousinasite', 'nom_usina2',
                           'Período Exibido GE'])
+    df['date'] = df.index
     df.rename(
         columns={'Data Dica': 'date', 'Selecione Tipo de GE Simp 4': 'value'},
         inplace=True
