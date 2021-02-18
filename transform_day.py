@@ -8,7 +8,7 @@ files = [
 
 
 def parser(value):
-    return dt.strptime(value, '%m/%d/%Y %H:%M:%S %p')
+    return dt.strptime(value, '%m/%d/%Y %H:%M:%S %p').strftime('%Y-%m-%d')
 
 
 def transform(csv):
