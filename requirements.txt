@@ -4,4 +4,3 @@ pandas==1.2.2
 seaboarn==0.11.1
 scipy==1.6.0
 statsmodel==0.12.2
-

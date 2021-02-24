@@ -3,6 +3,7 @@ from datetime import datetime as dt
 
 
 files = [
+    '2000_2021_Brazilian_North_Region_hourly_MWmed_hydroelectric_power_series.csv',
     'Simples_Geração_de_Energia_Dia_data_nordeste.csv',
     'Simples_Geração_de_Energia_Dia_data_norte.csv'
 ]
@@ -13,11 +14,12 @@ def parser(value):
 
 
 def transform(csv):
+    delimiter = ',' if csv == files[0] else ';'
     csv = f"data/origin/{csv}"
     to_csv = csv.replace('origin', 'transformed')
 
     print(f"Transformando arquivo '{csv}'")
-    df = pd.read_csv(csv, index_col='Data Dica', parse_dates=True, date_parser=parser, delimiter=';')
+    df = pd.read_csv(csv, index_col='Data Dica', parse_dates=True, date_parser=parser, delimiter=delimiter)
     df = df.drop(columns=['Data Escala de Tempo 1 GE Simp 4', 'dsc_estado',
                           'id_subsistema', 'nom_tipousinasite', 'nom_usina2',
                           'Período Exibido GE'])
